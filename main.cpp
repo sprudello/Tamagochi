@@ -96,7 +96,7 @@ int main() {
     string tamagotchi = pet.chooseTamagotchi();
 
 
-    while (pet.isAlive()) {
+    while (pet.isAlive()) 
         pet.displayStats();
         cout << "1. Feed\n";
         cout << "2. Play\n";
@@ -111,45 +111,45 @@ int main() {
         switch (choice) {
             case 1:
                 pet.feed();
-                if(tamagotchi == "Fish") {
+                if (tamagotchi == "Fish")
                     cout << "BLUB Lecker BLUB!";
-                }
+
                 break;
 
             case 2:
                 pet.play();
-                if(tamagotchi == "Fish") {
+                if (tamagotchi == "Fish")
                     cout << "BLUB BLUB BLUB!\n";
-                }
+
                 break;
 
             case 3:
                 pet.rest();
-                if(tamagotchi == "Fish") {
+                if (tamagotchi == "Fish")
                     cout << "ZZZZZ BLUB ZZZZZ!\n";
-                }
+
                 break;
 
             case 4:
                 pet.drink();
-                if(tamagotchi == "Fish") {
+                if (tamagotchi == "Fish")
                     cout << "BLUB GLUG GLUG BLUB";
-                }
+
                 break;
 
             case 5:
                 pet.go_walk();
-                if(tamagotchi == "Fish") {
+                if (tamagotchi == "Fish")
                     cout << "BLUB UIUIUI BLUB!\n";
 
-                }
+
                 break;
             default:
                 cout << "Invalid choice. Try again.\n";
         }
 
         pet.update();
-    }
+    
 
     cout << "Your " << tamagotchi <<" has passed away. Game over.\n";
 
