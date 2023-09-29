@@ -10,6 +10,7 @@ private:
 public:
     Tamagotchi() : hunger(50), happiness(50), energy(50) {}
 
+
     void feed() {
         hunger -= 10;
     }
@@ -31,18 +32,48 @@ public:
     }
 
     bool isAlive() {
-        return hunger > 0 && happiness > 0 && energy > 0;
+        return hunger > 100 && happiness > 0 && energy > 0;
     }
 
     void displayStats() {
         cout << "Hunger: " << hunger << " | Happiness: " << happiness << " | Energy: " << energy << "\n";
     }
-    void chooseTamagotchi() {
+    string chooseTamagotchi() {
         cout << "1. Fish\n";
         cout << "2. Cat\n";
         cout << "3. Pickmin\n";
         cout << "4. Kermit\n";
         cout << "5. Amoeba\n";
+        cout << "Which Tamagotchi would you like?: \n";
+        int choice;
+        string tamagotchi;
+        cin >> choice;
+        switch(choice){
+            case 1:
+                tamagotchi = "Fish";
+                break;
+
+            case 2:
+                tamagotchi = "Cat";
+                break;
+
+            case 3:
+                tamagotchi = "Pickmin";
+                break;
+
+            case 4:
+                tamagotchi = "Kermit";
+                break;
+
+            case 5:
+                tamagotchi = "Amoeba";
+                break;
+
+            default:
+                cout << "Invalid choice. Try again.\n";
+        }
+        return tamagotchi;
+
     }
 };
 
@@ -50,7 +81,8 @@ int main() {
     Tamagotchi pet;
 
     cout << "Welcome to Tamagotchi Console Game!\n";
-    /*pet.chooseTamagotchi();*/
+    string tamagotchi = pet.chooseTamagotchi();
+
 
     while (pet.isAlive()) {
         pet.displayStats();
@@ -82,7 +114,7 @@ int main() {
         pet.update();
     }
 
-    cout << "Your Tamagotchi has passed away. Game over.\n";
+    cout << "Your " << tamagotchi <<" has passed away. Game over.\n";
 
     return 0;
 }
