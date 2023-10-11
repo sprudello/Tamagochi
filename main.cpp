@@ -96,7 +96,12 @@ public:
 
         // Display the stats
         cout << "---------------------------------------------------------------------------------------------------------------------\n";
-        cout << "Hunger: " << hungerdisplay << "(" << hunger << ")" << " | Happiness: " << happinessdisplay << "(" << happiness << ")" << " | Energy: " << energydisplay << "(" << energy << ")" << " | Thurst: " << thurstdisplay << "(" << thurst << ")" << " | Love: " << lovedisplay << "(" << love << ")" << " | Age: " << age << "\n";
+        cout << "Hunger: " << hungerdisplay << "(" << hunger << ")"
+             << " | Happiness: " << happinessdisplay << "(" << happiness << ")"
+             << " | Energy: " << energydisplay << "(" << energy << ")"
+             << " | Thirst: " << thurstdisplay << "(" << thurst << ")"
+             << " | Love: " << lovedisplay << "(" << love << ")"
+             << " | Age: " << age << "\n";
         cout << "---------------------------------------------------------------------------------------------------------------------\n";
         cout << "\n";
     }
