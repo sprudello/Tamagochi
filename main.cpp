@@ -18,11 +18,6 @@ public:
 
     void update() {
         turns++;
-        hunger += 5;
-        happiness -= 5;
-        energy -= 5;
-        thirst += 5;
-        love -= 5;
         if (turns % 5 == 0) {
             age++;
         }
@@ -119,26 +114,24 @@ public:
             if (thirst < 0)
                 thirst = 0;
         }
+        cout << "-----------------------------------------------------------\n"
+                "|   Stat     |   Display        |   Percentage   |\n"
+                "-----------------------------------------------------------\n"
+                "|  Hunger    |   " << hungerDisplay << "|      " << hunger << "%        |\n"
+                "|  Happiness |   " << happinessDisplay << "|      " << happiness << "%        |\n"
+                "|  Energy    |   " << energyDisplay << "|      " << energy << "%        |\n"
+                "|  Thirst    |   " << thirstDisplay << "|      " << thirst << "%        |\n"
+                "|  Love      |   " << loveDisplay << "|      " << love << "%        |\n"
+                "|  Age       |   " << age << "              |  not available  |\n"
+                "-----------------------------------------------------------\n";
 
-        // Display the stats
-        // Display the stats in a table format
-        cout << "-----------------------------------------------------------\n";
-        cout << "|   Stat     |   Display        |   Percentage   |\n";
-        cout << "-----------------------------------------------------------\n";
-        cout << "|  Hunger    |   " << hungerDisplay << "|      " << hunger << "%        |\n";
-        cout << "|  Happiness |   " << happinessDisplay << "|      " << happiness << "%        |\n";
-        cout << "|  Energy    |   " << energyDisplay << "|      " << energy << "%        |\n";
-        cout << "|  Thirst    |   " << thirstDisplay << "|      " << thirst << "%        |\n";
-        cout << "|  Love      |   " << loveDisplay << "|      " << love << "%        |\n";
-        cout << "|  Age       |   " << age << "              |  not available  |\n";
-        cout << "-----------------------------------------------------------\n";
     }
 
 
     static string chooseTamagotchi() {
-        cout << "\n.---------.--------.------------.-----------.-----------.\n";
-        cout << "| 1. Fish | 2. Cat | 3. Pickmin | 4. Kermit | 5. Amoeba |\n";
-        cout << "'---------'--------'------------'-----------'-----------'\nWhich Tamagotchi would you like?:\n";
+        cout << "\n.---------.--------.------------.-----------.-----------.\n"
+                "| 1. Fish | 2. Cat | 3. Pickmin | 4. Kermit | 5. Amoeba |\n"
+                "'---------'--------'------------'-----------'-----------'\nWhich Tamagotchi would you like?:\n";
         int choice;
         string tamagotchi;
         cin >> choice;
@@ -169,10 +162,10 @@ class Game {
 
         while (pet.isAlive()) {
             pet.displayStats();
-            cout << ".---------.---------.---------.---------------.-----------.\n";
-            cout << "| 1. Feed | 2. Play | 3. Rest | 4. Give drink | 5. Cuddle |\n";
-            cout << "'---------'---------'---------'---------------'-----------'\n";
-            cout << "Enter your choice: \n";
+            cout << ".---------.---------.---------.---------------.-----------.\n"
+                    "| 1. Feed | 2. Play | 3. Rest | 4. Give drink | 5. Cuddle |\n"
+                    "'---------'---------'---------'---------------'-----------'\n"
+                    "Enter your choice: \n";
             int choice;
             cin >> choice;
             string reaction;
@@ -252,19 +245,18 @@ class Game {
                     cout << "Invalid choice. Try again.\n";
                     break;
             }
-            cout << "-------------------------------------------------------------\n";
-            cout << "Your " << tamagotchi << " reacts with: " << reaction << "\n";
-            cout << "-------------------------------------------------------------\n";
+            cout << "-------------------------------------------------------------\n"
+                    "Your " << tamagotchi << " reacted with: " << reaction << "";
             pet.update();
         }
-        cout << "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n";
-        cout << "Your " << tamagotchi << " has passed away at age " << pet.getAge() << " due to " << pet.getCauseOfDeath() << ". Game over.\n";
-        cout << "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n";
-        cout << "\n";
-        cout << ".---------------.---------------.\n";
-        cout << "| 1. Play again | 2. Close Game |\n";
-        cout << "'---------------'---------------'\n";
-        cout << "Enter your choice: \n";
+        cout << "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
+                "Your " << tamagotchi << " has passed away at age " << pet.getAge() << " due to " << pet.getCauseOfDeath() << ". Game over.\n"
+                "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
+                "\n"
+                ".---------------.---------------.\n"
+                "| 1. Play again | 2. Close Game |\n"
+                "'---------------'---------------'\n"
+                "Enter your choice: \n";
         int choice;
         cin >> choice;
         switch (choice) {
