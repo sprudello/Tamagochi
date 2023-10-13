@@ -50,13 +50,11 @@ public:
     }
 
     int generateRandomNumber(double probability) {
-        int randomNumber = rand() % 100;  // Generate a random number between 0 and 99
+        int randomNumber = rand() % 101;
 
         if (randomNumber < probability * 100) {
-            // Probability of generating 2
             return 2;
         } else {
-            // Probability of generating 1
             return 1;
         }
     }
@@ -339,6 +337,9 @@ class Game {
                                 effect = 10;
                                 pet.love += effect;
                                 break;
+                            default:
+                                cout << "Invalid choice. Try again.\n";
+                                break;
                         }
                         cout << "You found a " << item << "! Your " << tamagotchi << " gets " << effect << " " << stat << "!";
                         if (pet.chance < 15)
@@ -351,12 +352,13 @@ class Game {
                     cout << "Invalid choice. Try again.\n";
                     break;
             }
-            cout << "-------------------------------------------------------------\n"
-                    "Your " << tamagotchi << " reacted with: " << reaction << "";
+            if (choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 5)
+                 cout << "-------------------------------------------------------------\n"
+                         "Your " << tamagotchi << " reacted with: " << reaction << "";
             pet.update();
         }
         cout << "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
-                "Your " << tamagotchi << " has passed away at age " << pet.getAge() << " due to " << pet.getCauseOfDeath() << ". Game over.\n"
+                "Your " << tamagotchi << " has passed away at age " << pet.getAge() << " and " << pet.getCauseOfDeath() << ". Game over.\n"
                 "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
                 "\n"
                 ".---------------.---------------.\n"
