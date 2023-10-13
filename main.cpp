@@ -1,23 +1,84 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 class Tamagotchi {
 private:
-    int hunger, happiness, energy, thirst, love, age, turns;
-    string hungerDisplay, happinessDisplay, energyDisplay, thirstDisplay, loveDisplay, causeOfDeath;
+    string hungerDisplay, happinessDisplay, energyDisplay, thirstDisplay, loveDisplay, causeOfDeath, chanceDisplay;
 
 public:
-    Tamagotchi() : hunger(50), happiness(50), energy(50), thirst(50), love(50), age(0), turns(0) {}
+    int hunger, happiness, energy, thirst, love, age, turns, chance;
 
-    void feed() { hunger -= 20; energy += 5; happiness -= 5; thirst += 5;}
-    void play() { happiness += 20; energy -= 5; hunger += 5; thirst += 5;}
-    void rest() { energy += 20; hunger += 5; happiness -= 5; thirst += 5;}
-    void drink() { thirst -= 20; energy += 5; hunger -= 10; happiness -= 5;}
-    void cuddle() { love += 20; hunger += 5; energy += 5; thirst += 5; happiness += 15;}
+    Tamagotchi() : hunger(50), happiness(50), energy(50), thirst(50), love(50), age(0), turns(0), chance(0) {}
+
+    void feed() {
+        hunger = max(0, hunger - 20);
+        energy = max(0, energy + 5);
+        happiness = max(0, happiness - 5);
+        thirst = max(0, thirst + 5);
+    }
+
+    void play() {
+        happiness = max(0, happiness + 20);
+        energy = max(0, energy - 5);
+        hunger = max(0, hunger + 5);
+        thirst = max(0, thirst + 5);
+    }
+
+    void rest() {
+        energy = max(0, energy + 20);
+        hunger = max(0, hunger + 5);
+        happiness = max(0, happiness - 5);
+        thirst = max(0, thirst + 5);
+    }
+
+    void drink() {
+        thirst = max(0, thirst - 20);
+        energy = max(0, energy + 5);
+        hunger = max(0, hunger - 10);
+        happiness = max(0, happiness - 5);
+    }
+
+    void cuddle() {
+        love = max(0, love + 20);
+        hunger = max(0, hunger + 5);
+        energy = max(0, energy + 5);
+        thirst = max(0, thirst + 5);
+        happiness = max(0, happiness + 10);
+    }
+
+    int generateRandomNumber(double probability) {
+        int randomNumber = rand() % 100;  // Generate a random number between 0 and 99
+
+        if (randomNumber < probability * 100) {
+            // Probability of generating 2
+            return 2;
+        } else {
+            // Probability of generating 1
+            return 1;
+        }
+    }
 
     void update() {
         turns++;
+        love = max(0, love -5);
+        hunger = max(0, hunger + 5);
+        energy = max(0, energy - 5);
+        thirst = max(0, thirst + 5);
+        happiness = max(0, happiness - 5);
+        chance += 10;
+        srand(time(0));
+        int randomNum = rand() % 2 + 1;
+        switch (randomNum){
+            case 1:
+                chance += 5;
+                break;
+            case 2:
+                chance -= 5;
+                break;
+        }
         if (turns % 5 == 0) {
             age++;
         }
@@ -39,90 +100,79 @@ public:
     }
 
     void displayStats() {
+
+        // Determine chance display
+        if (chance >= 85)
+            chanceDisplay = "High Chance    ";
+        else if (chance >= 65)
+            chanceDisplay = "strong Chance  ";
+        else if (chance >= 40)
+            chanceDisplay = "mid Chance     ";
+        else if (chance <= 40)
+            chanceDisplay = "Low Chance     ";
+
         // Determine hunger display
-        if (hunger >= 75)
-            hungerDisplay = "little hungry  ";
-        else if (hunger >= 50)
-            hungerDisplay = "normal         ";
-        else if (hunger >= 25)
-            hungerDisplay = "very full      ";
-        else
+        if (hunger >= 85)
             hungerDisplay = "very hungry    ";
+        else if (hunger >= 65)
+            hungerDisplay = "hungry         ";
+        else if (hunger >= 40)
+            hungerDisplay = "normal         ";
+        else if (hunger <= 40)
+            hungerDisplay = "very full      ";
 
         // Determine happiness display
-        if (happiness >= 75)
+        if (happiness >= 85)
+            happinessDisplay = "very happy     ";
+        else if (happiness >= 65)
             happinessDisplay = "happy          ";
-        else if (happiness >= 50)
+        else if (happiness >= 40)
             happinessDisplay = "normal         ";
-        else if (happiness >= 25)
+        else if (happiness <= 40)
             happinessDisplay = "sad            ";
-        else
-            happinessDisplay = "very happy";
 
         // Determine energy display
-        if (energy >= 75)
-            energyDisplay = "much energy    ";
-        else if (energy >= 50)
-            energyDisplay = "normal         ";
-        else if (energy >= 25)
-            energyDisplay = "little energy  ";
-        else
+        if (energy >= 85)
             energyDisplay = "too much energy";
+        else if (energy >= 65)
+            energyDisplay = "much energy    ";
+        else if (energy >= 40)
+            energyDisplay = "normal         ";
+        else if (energy <= 40)
+            energyDisplay = "little energy  ";
 
         // Determine thirst display
-        if (thirst >= 100)
+        if(thirst >= 85)
             thirstDisplay = "very thirsty   ";
-        else if (thirst >= 75)
+        if (thirst >= 65)
             thirstDisplay = "little thirsty ";
-        else if (thirst >= 50)
+        else if (thirst >= 40)
             thirstDisplay = "normal         ";
-        else
+        else if (thirst <= 40)
             thirstDisplay = "not thirsty    ";
 
+
         // Determine love display
-        if (love >= 75)
-            loveDisplay = "loving         ";
-        else if (love >= 50)
-            loveDisplay = "normal         ";
-        else if (love >= 25)
-            loveDisplay = "lonely         ";
-        else
+        if(love >= 85)
             loveDisplay = "loves you      ";
+        if (love >= 65)
+            loveDisplay = "loving         ";
+        else if (love >= 40)
+            loveDisplay = "normal         ";
+        else if (love <= 40)
+            loveDisplay = "lonely         ";
 
-        if (hunger > 100 || love > 100 || energy > 100 || happiness > 100 || thirst > 100) {
 
-            if (hunger > 100)
-                hunger = 100;
-            if (love > 100)
-                love = 100;
-            if (energy > 100)
-                energy = 100;
-            if (happiness > 100)
-                happiness = 100;
-            if (thirst > 100)
-                thirst = 100;
-        }
-        else if (hunger < 0 || love < 0 || energy < 0 || happiness < 0 || thirst < 0) {
-            if (hunger < 0)
-                hunger = 0;
-            if (love < 0)
-                love = 0;
-            if (energy < 0)
-                energy = 0;
-            if (happiness < 0)
-                happiness = 0;
-            if (thirst < 0)
-                thirst = 0;
-        }
-        cout << "-----------------------------------------------------------\n"
-                "|   Stat     |   Display        |   Percentage   |\n"
+        cout << "\n-----------------------------------------------------------\n"
+                "|   Stat          |   Display        |   Percentage    |\n"
                 "-----------------------------------------------------------\n"
-                "|  Hunger    |   " << hungerDisplay << "|      " << hunger << "%        |\n"
-                "|  Happiness |   " << happinessDisplay << "|      " << happiness << "%        |\n"
-                "|  Energy    |   " << energyDisplay << "|      " << energy << "%        |\n"
-                "|  Thirst    |   " << thirstDisplay << "|      " << thirst << "%        |\n"
-                "|  Love      |   " << loveDisplay << "|      " << love << "%        |\n"
-                "|  Age       |   " << age << "              |  not available  |\n"
+                "|  Hunger         |   " << hungerDisplay << "|      " << hunger << "%        |\n"
+                "|  Happiness      |   " << happinessDisplay << "|      " << happiness << "%        |\n"
+                "|  Energy         |   " << energyDisplay << "|      " << energy << "%        |\n"
+                "|  Thirst         |   " << thirstDisplay << "|      " << thirst << "%        |\n"
+                "|  Love           |   " << loveDisplay << "|      " << love << "%        |\n"
+                "|  Age            |   " << age << "              |  not available  |\n"
+                "|  Chance to find |   " << chanceDisplay << "|       " <<  chance << "%        |\n"
                 "-----------------------------------------------------------\n";
 
     }
@@ -162,9 +212,9 @@ class Game {
 
         while (pet.isAlive()) {
             pet.displayStats();
-            cout << ".---------.---------.---------.---------------.-----------.\n"
-                    "| 1. Feed | 2. Play | 3. Rest | 4. Give drink | 5. Cuddle |\n"
-                    "'---------'---------'---------'---------------'-----------'\n"
+            cout << ".---------.---------.---------.---------------.-----------.-------------------------------------.\n"
+                    "| 1. Feed | 2. Play | 3. Rest | 4. Give drink | 5. Cuddle | 6. Find something for Pet outdoors. |\n"
+                    "'---------'---------'---------'---------------'-----------'-------------------------------------'\n"
                     "Enter your choice: \n";
             int choice;
             cin >> choice;
@@ -241,6 +291,62 @@ class Game {
                         reaction = "Amoeba quivers in a cuddly embrace!\n";
                     break;
 
+                case 6: {
+                    srand(static_cast<unsigned int>(time(nullptr)));
+                    double probabilityOfTwo = static_cast<double>(pet.chance) / 100.0;
+                    int randomNum = pet.generateRandomNumber(probabilityOfTwo);
+
+                    if (randomNum == 1) {
+                        cout << "You found Nothing, your Chances drop to find something for your Pet.";
+                        if (pet.chance < 15)
+                            pet.chance = 0;
+                        else if (pet.chance > 15)
+                            pet.chance = 15;
+                    } else if (randomNum == 2) {
+                        int effect;
+                        string stat;
+                        string item;
+                        srand(time(0));
+                        int random = rand() % 5;
+                        switch (random) {
+                            case 0:
+                                item = "Cozy Pillow";
+                                stat = "Energy";
+                                effect = 10;
+                                pet.energy += effect;
+                                break;
+                            case 1:
+                                item = "Juicy Fruit Snack";
+                                stat = "Hunger";
+                                effect = -10;
+                                pet.hunger += effect;
+                                break;
+                            case 2:
+                                item = "Miniature Ball Pit";
+                                stat = "Happiness";
+                                effect = 10;
+                                pet.happiness += effect;
+                                break;
+                            case 3:
+                                item = "Sparkling Water bowl";
+                                stat = "Thirst";
+                                effect = -10;
+                                pet.thirst += effect;
+                                break;
+                            case 4:
+                                item = "Cuddle Plushie";
+                                stat = "Love";
+                                effect = 10;
+                                pet.love += effect;
+                                break;
+                        }
+                        cout << "You found a " << item << "! Your " << tamagotchi << " gets " << effect << " " << stat << "!";
+                        if (pet.chance < 15)
+                            pet.chance = 0;
+                        else if (pet.chance > 15)
+                            pet.chance = 15;
+                    }
+                }
                 default:
                     cout << "Invalid choice. Try again.\n";
                     break;
