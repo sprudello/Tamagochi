@@ -296,10 +296,10 @@ class Game {
 
                     if (randomNum == 1) {
                         cout << "You found Nothing, your Chances drop to find something for your Pet.";
-                        if (pet.chance < 15)
-                            pet.chance = 0;
-                        else if (pet.chance > 15)
+                        if (pet.chance > 15)
                             pet.chance = 15;
+                        else
+                            pet.chance = 0;
                     } else if (randomNum == 2) {
                         int effect;
                         string stat;
@@ -342,11 +342,12 @@ class Game {
                                 break;
                         }
                         cout << "You found a " << item << "! Your " << tamagotchi << " gets " << effect << " " << stat << "!";
-                        if (pet.chance < 15)
-                            pet.chance = 0;
-                        else if (pet.chance > 15)
+                        if (pet.chance > 15)
                             pet.chance = 15;
+                        else
+                            pet.chance = 0;
                     }
+                    break;
                 }
                 default:
                     cout << "Invalid choice. Try again.\n";
@@ -355,9 +356,9 @@ class Game {
             if (choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 5)
                  cout << "-------------------------------------------------------------\n"
                          "Your " << tamagotchi << " reacted with: " << reaction << "";
-            pet.update();
+                pet.update();
         }
-        cout << "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
+        cout << "\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
                 "Your " << tamagotchi << " has passed away at age " << pet.getAge() << " and " << pet.getCauseOfDeath() << ". Game over.\n"
                 "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
                 "\n"
