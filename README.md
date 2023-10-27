@@ -29,17 +29,33 @@ Our goal is to make a Tamagotchi.
 | 9   |Kann|Qualität|Als User möchte ich den Tamagotchi auf suche nach einem Spielzeug schicken kann, damit es mehr optionen gibt wie ich mit dem Tamagotchi interagieren kann.|
 |10  |Muss|Funktional|Als User möchte möchte ich nach einer Runde entsscheiden ob ich nochmal spielen oder ob ich das Spiel schliessen will.| 
 
-✍️ Jede User Story hat eine ganzzahlige Nummer (1, 2, 3 etc.), eine Verbindlichkeit (Muss oder Kann?), und einen Typ (Funktional, Qualität, Rand). Die User Story selber hat folgende Form: *Als ein 🤷‍♂️ möchte ich 🤷‍♂️, damit 🤷‍♂️*.
-
 ### 1.3 Test cases
 
 | TC-№ | Initial situation | Input | Expected output |
 | ---- | ------------ | ------- | ----------------- |
-| 1.1  |              |         |                   |
-| ...  |              |         |                   |
-
-✍️ Die Nummer hat das Format `N.m`, wobei `N` die Nummer der User Story ist, die der Testfall abdeckt, und `m` von `1` an nach oben gezählt. Beispiel: Der dritte Testfall, der die zweite User Story abdeckt, hat also die Nummer `2.3`.
-
+| 1.1  |Game wurde gestartet| - |Optionen um sich um den Tamagotchi zu kümmern erscheinen.|
+| 2.1  |Game wurde gestartet| - |"1. Fish / 2. Cat / 3. Pickmin / 4. Kermit / 5. Amoeba /Which Tamagotchi would you like?:"|
+| 2.2  |Wahl der Tamagotchis wurde ausgegeben| 1 | Du hast den Fisch als Tamagotchi gewählt.|
+| 3.1  |Tamagotchi wurde gewählt| - |"1. Feed / 2. Play / 3. Rest / 4. Give drink / 5. Cuddle / 6. Find something for Pet outdoors."|
+| 3.2  |Tamagotchi wurde gewählt| 1 |"BLUB yummy BLUB!"|
+| 3.3  |Tamagotchi wurde gefüttert| - |" /Hunger         /   very full      /      35%        /"| 
+| 4.1  |Tamagotchi wurde gewählt| - |"1. Feed / 2. Play / 3. Rest / 4. Give drink / 5. Cuddle / 6. Find something for Pet outdoors."|
+| 4.2  |Tamagotchi wurde gewählt| 4 |"BLUB GLUG GLUG BLUB"|
+| 4.3  |Tamagotchi wurde zutrinken gegeben| - |"/  Thirst         /   normal         /      45%        /"|
+| 5.1  |Tamagotchi wurde gewählt| - |"1. Feed / 2. Play / 3. Rest / 4. Give drink / 5. Cuddle / 6. Find something for Pet outdoors."|
+| 5.2  |Tamagotchi wurde gewählt| 2 |"BLUB BLUB BLUB!"|
+| 5.3  |Mit Tamagotchi wurde gespielt| - |"/  Happiness      /   normal         /      45%        /"|
+| 6.1  |Tamagotchi wurde gewählt| - |"1. Feed / 2. Play / 3. Rest / 4. Give drink / 5. Cuddle / 6. Find something for Pet outdoors."|
+| 6.2  |Tamagotchi wurde gewählt| 3 |"ZZZZZ BLUB ZZZZZ!"|
+| 6.3  |Tamagotchi hat geschlafen| - |"/  Energy         /   normal         /      40%        /"|
+| 7.1  |Spiel leuft| - |Tamagotchi lebt wenn keiner der Werte einen kritischen Punkt überschreitet.|
+| 7.2  |Spiel leuft| - |Kritischer Punkt überschritten: "Your Fish has passed away at age 1 and died of thirst. Game over."|
+| 8.1  |Spiel leuft| 1 |"BLUB yummy BLUB!"|
+| 9.1  |Spiel leuft| 6 |"You found Nothing, your Chances drop to find something for your Pet."|
+| 9.2  |Spiel leuft| 6 |"You found a Sparkling Water bowl! Your Kermit gets -10 Thirst!"|
+|10.1  |Tamagotchi ist gestorben| - |"/ 1. Play again / 2. Close Game /"|
+|10.2  |Tamagotchi ist gestorben| 1 |Neues Game wird gestartet.|
+|10.3  |Tamgaotchi ist gestorben| 2 |Game wird geschlossen|
 ### 1.4 Diagrams
 
 ✍️ Hier können Sie PAPs, Use Case- und Gantt-Diagramme oder Ähnliches einfügen.
