@@ -171,8 +171,7 @@ public:
     }
 
     static string chooseTamagotchi() {
-        bool validChoice = true;
-        do {
+        while(true) {
             cout << "\n.---------.--------.------------.-----------.-----------.\n"
                     "| 1. Fish | 2. Cat | 3. Pickmin | 4. Kermit | 5. Amoeba |\n"
                     "'---------'--------'------------'-----------'-----------'\nWhich Tamagotchi would you like?:\n";
@@ -182,26 +181,24 @@ public:
             switch (choice) {
                 case 1:
                     tamagotchi = "Fish";
-                    break;
+                    return tamagotchi;
                 case 2:
                     tamagotchi = "Cat";
-                    break;
+                    return tamagotchi;
                 case 3:
                     tamagotchi = "Pickmin";
-                    break;
+                    return tamagotchi;
                 case 4:
                     tamagotchi = "Kermit";
-                    break;
+                    return tamagotchi;
                 case 5:
                     tamagotchi = "Amoeba";
-                    break;
+                    return tamagotchi;
                 default:
                     cout << "Invalid choice. Try again.\n";
                     break;
             }
-            return tamagotchi;
-            bool validChoice = false;
-        }while (!validChoice);
+        }
     }
 
     [[nodiscard]] int getAge() const {
