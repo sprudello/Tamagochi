@@ -61,15 +61,14 @@ public:
 
     void update() {
         turns++;
-        love = max(0, love -5);
+        love = max(0, love - 5);
         hunger = max(0, hunger + 5);
         energy = max(0, energy - 5);
         thirst = max(0, thirst + 5);
         happiness = max(0, happiness - 5);
         chance += 10;
-        srand(time(0));
         int randomNum = rand() % 2 + 1;
-        switch (randomNum){
+        switch (randomNum) {
             case 1:
                 chance += 5;
                 break;
@@ -93,12 +92,11 @@ public:
             causeOfDeath = "died of lack of energy";
     }
 
-    [[nodiscard]] bool isAlive() const {
+    bool isAlive() const {
         return thirst < 100 && hunger < 100 && love > 0 && happiness > 0 && energy > 0;
     }
 
     void displayStats() {
-
         // Determine chance display
         if (chance >= 85)
             chanceDisplay = "High Chance    ";
@@ -140,7 +138,7 @@ public:
             energyDisplay = "little energy  ";
 
         // Determine thirst display
-        if(thirst >= 85)
+        if (thirst >= 85)
             thirstDisplay = "very thirsty   ";
         if (thirst >= 65)
             thirstDisplay = "little thirsty ";
@@ -149,9 +147,8 @@ public:
         else if (thirst <= 40)
             thirstDisplay = "not thirsty    ";
 
-
         // Determine love display
-        if(love >= 85)
+        if (love >= 85)
             loveDisplay = "loves you      ";
         if (love >= 65)
             loveDisplay = "loving         ";
@@ -160,226 +157,254 @@ public:
         else if (love <= 40)
             loveDisplay = "lonely         ";
 
-
         cout << "\n-----------------------------------------------------------\n"
                 "|   Stat          |   Display        |   Percentage    |\n"
                 "-----------------------------------------------------------\n"
                 "|  Hunger         |   " << hungerDisplay << "|      " << hunger << "%        |\n"
-                "|  Happiness      |   " << happinessDisplay << "|      " << happiness << "%        |\n"
-                "|  Energy         |   " << energyDisplay << "|      " << energy << "%        |\n"
-                "|  Thirst         |   " << thirstDisplay << "|      " << thirst << "%        |\n"
-                "|  Love           |   " << loveDisplay << "|      " << love << "%        |\n"
-                "|  Age            |   " << age << "              |  not available  |\n"
-                "|  Chance to find |   " << chanceDisplay << "|       " <<  chance << "%        |\n"
-                "-----------------------------------------------------------\n";
-
+                                                                                    "|  Happiness      |   " << happinessDisplay << "|      " << happiness << "%        |\n"
+                                                                                                                                                              "|  Energy         |   " << energyDisplay << "|      " << energy << "%        |\n"
+                                                                                                                                                                                                                                  "|  Thirst         |   " << thirstDisplay << "|      " << thirst << "%        |\n"
+                                                                                                                                                                                                                                                                                                      "|  Love           |   " << loveDisplay << "|      " << love << "%        |\n"
+                                                                                                                                                                                                                                                                                                                                                                      "|  Age            |   " << age << "              |  not available  |\n"
+                                                                                                                                                                                                                                                                                                                                                                                                         "|  Chance to find |   " << chanceDisplay << "|       " << chance << "%        |\n"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                              "-----------------------------------------------------------\n";
     }
-
 
     static string chooseTamagotchi() {
-        cout << "\n.---------.--------.------------.-----------.-----------.\n"
-                "| 1. Fish | 2. Cat | 3. Pickmin | 4. Kermit | 5. Amoeba |\n"
-                "'---------'--------'------------'-----------'-----------'\nWhich Tamagotchi would you like?:\n";
-        int choice;
-        string tamagotchi;
-        cin >> choice;
-        switch (choice) {
-            case 1: tamagotchi = "Fish"; break;
-            case 2: tamagotchi = "Cat"; break;
-            case 3: tamagotchi = "Pickmin"; break;
-            case 4: tamagotchi = "Kermit"; break;
-            case 5: tamagotchi = "Amoeba"; break;
-            default: cout << "Invalid choice. Try again.\n"; break;
+        bool validChoice = true;
+        while (!validChoice) {
+            cout << "\n.---------.--------.------------.-----------.-----------.\n"
+                    "| 1. Fish | 2. Cat | 3. Pickmin | 4. Kermit | 5. Amoeba |\n"
+                    "'---------'--------'------------'-----------'-----------'\nWhich Tamagotchi would you like?:\n";
+            int choice;
+            string tamagotchi;
+            cin >> choice;
+            switch (choice) {
+                case 1:
+                    tamagotchi = "Fish";
+                    break;
+                case 2:
+                    tamagotchi = "Cat";
+                    break;
+                case 3:
+                    tamagotchi = "Pickmin";
+                    break;
+                case 4:
+                    tamagotchi = "Kermit";
+                    break;
+                case 5:
+                    tamagotchi = "Amoeba";
+                    break;
+                default:
+                    cout << "Invalid choice. Try again.\n";
+                    break;
+            }
+            return tamagotchi;
+            bool validChoice = false;
         }
-        return tamagotchi;
     }
-    public: [[nodiscard]] int getAge() const {
+
+    [[nodiscard]] int getAge() const {
         return age;
     }
 
-    public: [[nodiscard]] string getCauseOfDeath() const {
+    [[nodiscard]] string getCauseOfDeath() const {
         return causeOfDeath;
     }
 };
 
 class Game {
-    public: static void GameLogic() {
+public:
+    static void GameLogic() {
         Tamagotchi pet;
         cout << "Welcome to Tamagotchi Console Game!\n";
         string tamagotchi = pet.chooseTamagotchi();
 
         while (pet.isAlive()) {
-            pet.displayStats();
-            cout << ".---------.---------.---------.---------------.-----------.-------------------------------------.\n"
-                    "| 1. Feed | 2. Play | 3. Rest | 4. Give drink | 5. Cuddle | 6. Find something for Pet outdoors. |\n"
-                    "'---------'---------'---------'---------------'-----------'-------------------------------------'\n"
+            bool validChoice = true;
+            while (!validChoice) {
+                pet.displayStats();
+                cout << ".---------.---------.---------.---------------.-----------.-------------------------------------.\n"
+                        "| 1. Feed | 2. Play | 3. Rest | 4. Give drink | 5. Cuddle | 6. Find something for Pet outdoors. |\n"
+                        "'---------'---------'---------'---------------'-----------'-------------------------------------'\n"
+                        "Enter your choice: \n";
+                int choice;
+                cin >> choice;
+                string reaction;
+
+                switch (choice) {
+                    case 1:
+                        pet.feed();
+                        if (tamagotchi == "Fish")
+                            reaction = "BLUB yummy BLUB!\n";
+                        else if (tamagotchi == "Cat")
+                            reaction = "Nom nom purr!\n";
+                        else if (tamagotchi == "Pickmin")
+                            reaction = "Pikmin happily eats!\n";
+                        else if (tamagotchi == "Kermit")
+                            reaction = "Munch munch ribbit!\n";
+                        else if (tamagotchi == "Amoeba")
+                            reaction = "Amoeba engulfs nutrients!\n";
+                        break;
+
+                    case 2:
+                        pet.play();
+                        if (tamagotchi == "Fish")
+                            reaction = "BLUB BLUB BLUB!\n";
+                        else if (tamagotchi == "Cat")
+                            reaction = "Purrrrrr!\n";
+                        else if (tamagotchi == "Pickmin")
+                            reaction = "Pikmin happily frolics!\n";
+                        else if (tamagotchi == "Kermit")
+                            reaction = "Jump and croak!\n";
+                        else if (tamagotchi == "Amoeba")
+                            reaction = "Amoeba undulates in excitement!\n";
+                        break;
+
+                    case 3:
+                        pet.rest();
+                        if (tamagotchi == "Fish")
+                            reaction = "ZZZZZ BLUB ZZZZZ!\n";
+                        else if (tamagotchi == "Cat")
+                            reaction = "Purrrrrr, nap time!\n";
+                        else if (tamagotchi == "Pickmin")
+                            reaction = "Pikmin takes a little nap!\n";
+                        else if (tamagotchi == "Kermit")
+                            reaction = "Resting and dreaming of flies!\n";
+                        else if (tamagotchi == "Amoeba")
+                            reaction = "Amoeba takes a break from dividing!\n";
+                        break;
+
+                    case 4:
+                        pet.drink();
+                        if (tamagotchi == "Fish")
+                            reaction = "BLUB GLUG GLUG BLUB";
+                        else if (tamagotchi == "Cat")
+                            reaction = "Slurp, purr!\n";
+                        else if (tamagotchi == "Pickmin")
+                            reaction = "Pikmin sips some nectar!\n";
+                        else if (tamagotchi == "Kermit")
+                            reaction = "Gulp gulp, ribbit!\n";
+                        else if (tamagotchi == "Amoeba")
+                            reaction = "Amoeba absorbs water!\n";
+                        break;
+
+                    case 5:
+                        pet.cuddle();
+                        if (tamagotchi == "Fish")
+                            reaction = "BLUB loves the cuddles!\n";
+                        else if (tamagotchi == "Cat")
+                            reaction = "Purrs and snuggles!\n";
+                        else if (tamagotchi == "Pickmin")
+                            reaction = "Pikmin enjoys the cuddle!\n";
+                        else if (tamagotchi == "Kermit")
+                            reaction = "Feels warm and cuddly, ribbit!\n";
+                        else if (tamagotchi == "Amoeba")
+                            reaction = "Amoeba quivers in a cuddly embrace!\n";
+                        break;
+
+                    case 6: {
+                        srand(static_cast<unsigned int>(time(nullptr)));
+                        double probabilityOfTwo = static_cast<double>(pet.chance) / 100.0;
+                        int randomNum = pet.generateRandomNumber(probabilityOfTwo);
+
+                        if (randomNum == 1) {
+                            cout << "You found Nothing, your Chances drop to find something for your Pet.";
+                            if (pet.chance > 15)
+                                pet.chance = 15;
+                            else
+                                pet.chance = 0;
+                        } else if (randomNum == 2) {
+                            int effect;
+                            string stat;
+                            string item;
+                            srand(time(0));
+                            int random = rand() % 5;
+                            switch (random) {
+                                case 0:
+                                    item = "Cozy Pillow";
+                                    stat = "Energy";
+                                    effect = 10;
+                                    pet.energy += effect;
+                                    break;
+                                case 1:
+                                    item = "Juicy Fruit Snack";
+                                    stat = "Hunger";
+                                    effect = -10;
+                                    pet.hunger += effect;
+                                    break;
+                                case 2:
+                                    item = "Miniature Ball Pit";
+                                    stat = "Happiness";
+                                    effect = 10;
+                                    pet.happiness += effect;
+                                    break;
+                                case 3:
+                                    item = "Sparkling Water bowl";
+                                    stat = "Thirst";
+                                    effect = -10;
+                                    pet.thirst += effect;
+                                    break;
+                                case 4:
+                                    item = "Cuddle Plushie";
+                                    stat = "Love";
+                                    effect = 10;
+                                    pet.love += effect;
+                                    break;
+                                default:
+                                    cout << "Invalid choice. Try again.\n";
+                                    break;
+                            }
+                            cout << "You found a " << item << "! Your " << tamagotchi << " gets " << effect << " " << stat << "!";
+                            if (pet.chance > 15)
+                                pet.chance = 15;
+                            else
+                                pet.chance = 0;
+                        }
+                        break;
+                    }
+                    default:
+                        cout << "Invalid choice. Try again.\n";
+                        bool validChoice = false;
+                        break;
+                }
+                if (choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 5)
+                    cout << "-------------------------------------------------------------\n"
+                            "Your " << tamagotchi << " reacted with: " << reaction << "";
+                pet.update();
+            }
+        }
+        bool validChoice = true;
+        while (!validChoice) {
+            cout << "\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
+                    "Your " << tamagotchi << " has passed away at age " << pet.getAge() << " and " << pet.getCauseOfDeath() << ". Game over.\n"
+                    "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
+                    "\n"
+                    ".---------------.---------------.\n"
+                    "| 1. Play again | 2. Close Game |\n"
+                    "'---------------'---------------'\n"
                     "Enter your choice: \n";
             int choice;
             cin >> choice;
-            string reaction;
-
             switch (choice) {
                 case 1:
-                    pet.feed();
-                    if (tamagotchi == "Fish")
-                        reaction = "BLUB yummy BLUB!\n";
-                    else if (tamagotchi == "Cat")
-                        reaction = "Nom nom purr!\n";
-                    else if (tamagotchi == "Pikmin")
-                        reaction = "Pikmin happily eats!\n";
-                    else if (tamagotchi == "Kermit")
-                        reaction = "Munch munch ribbit!\n";
-                    else if (tamagotchi == "Amoeba")
-                        reaction = "Amoeba engulfs nutrients!\n";
+                    GameLogic();
                     break;
-
                 case 2:
-                    pet.play();
-                    if (tamagotchi == "Fish")
-                        reaction = "BLUB BLUB BLUB!\n";
-                    else if (tamagotchi == "Cat")
-                        reaction = "Purrrrrr!\n";
-                    else if (tamagotchi == "Pikmin")
-                        reaction = "Pikmin happily frolics!\n";
-                    else if (tamagotchi == "Kermit")
-                        reaction = "Jump and croak!\n";
-                    else if (tamagotchi == "Amoeba")
-                        reaction = "Amoeba undulates in excitement!\n";
+                    return;
                     break;
-
-                case 3:
-                    pet.rest();
-                    if (tamagotchi == "Fish")
-                        reaction = "ZZZZZ BLUB ZZZZZ!\n";
-                    else if (tamagotchi == "Cat")
-                        reaction = "Purrrrrr, nap time!\n";
-                    else if (tamagotchi == "Pikmin")
-                        reaction = "Pikmin takes a little nap!\n";
-                    else if (tamagotchi == "Kermit")
-                        reaction = "Resting and dreaming of flies!\n";
-                    else if (tamagotchi == "Amoeba")
-                        reaction = "Amoeba takes a break from dividing!\n";
-                    break;
-
-                case 4:
-                    pet.drink();
-                    if (tamagotchi == "Fish")
-                        reaction = "BLUB GLUG GLUG BLUB";
-                    else if (tamagotchi == "Cat")
-                        reaction = "Slurp, purr!\n";
-                    else if (tamagotchi == "Pikmin")
-                        reaction = "Pikmin sips some nectar!\n";
-                    else if (tamagotchi == "Kermit")
-                        reaction = "Gulp gulp, ribbit!\n";
-                    else if (tamagotchi == "Amoeba")
-                        reaction = "Amoeba absorbs water!\n";
-                    break;
-
-                case 5:
-                    pet.cuddle();
-                    if (tamagotchi == "Fish")
-                        reaction = "BLUB loves the cuddles!\n";
-                    else if (tamagotchi == "Cat")
-                        reaction = "Purrs and snuggles!\n";
-                    else if (tamagotchi == "Pikmin")
-                        reaction = "Pikmin enjoys the cuddle!\n";
-                    else if (tamagotchi == "Kermit")
-                        reaction = "Feels warm and cuddly, ribbit!\n";
-                    else if (tamagotchi == "Amoeba")
-                        reaction = "Amoeba quivers in a cuddly embrace!\n";
-                    break;
-
-                case 6: {
-                    srand(static_cast<unsigned int>(time(nullptr)));
-                    double probabilityOfTwo = static_cast<double>(pet.chance) / 100.0;
-                    int randomNum = pet.generateRandomNumber(probabilityOfTwo);
-
-                    if (randomNum == 1) {
-                        cout << "You found Nothing, your Chances drop to find something for your Pet.";
-                        if (pet.chance > 15)
-                            pet.chance = 15;
-                        else
-                            pet.chance = 0;
-                    } else if (randomNum == 2) {
-                        int effect;
-                        string stat;
-                        string item;
-                        srand(time(0));
-                        int random = rand() % 5;
-                        switch (random) {
-                            case 0:
-                                item = "Cozy Pillow";
-                                stat = "Energy";
-                                effect = 10;
-                                pet.energy += effect;
-                                break;
-                            case 1:
-                                item = "Juicy Fruit Snack";
-                                stat = "Hunger";
-                                effect = -10;
-                                pet.hunger += effect;
-                                break;
-                            case 2:
-                                item = "Miniature Ball Pit";
-                                stat = "Happiness";
-                                effect = 10;
-                                pet.happiness += effect;
-                                break;
-                            case 3:
-                                item = "Sparkling Water bowl";
-                                stat = "Thirst";
-                                effect = -10;
-                                pet.thirst += effect;
-                                break;
-                            case 4:
-                                item = "Cuddle Plushie";
-                                stat = "Love";
-                                effect = 10;
-                                pet.love += effect;
-                                break;
-                            default:
-                                cout << "Invalid choice. Try again.\n";
-                                break;
-                        }
-                        cout << "You found a " << item << "! Your " << tamagotchi << " gets " << effect << " " << stat << "!";
-                        if (pet.chance > 15)
-                            pet.chance = 15;
-                        else
-                            pet.chance = 0;
-                    }
-                    break;
-                }
                 default:
                     cout << "Invalid choice. Try again.\n";
+                    bool validChoice = false;
                     break;
             }
-            if (choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 5)
-                 cout << "-------------------------------------------------------------\n"
-                         "Your " << tamagotchi << " reacted with: " << reaction << "";
-                pet.update();
         }
-        cout << "\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
-                "Your " << tamagotchi << " has passed away at age " << pet.getAge() << " and " << pet.getCauseOfDeath() << ". Game over.\n"
-                "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
-                "\n"
-                ".---------------.---------------.\n"
-                "| 1. Play again | 2. Close Game |\n"
-                "'---------------'---------------'\n"
-                "Enter your choice: \n";
-        int choice;
-        cin >> choice;
-        switch (choice) {
-            case 1:
-                GameLogic();
-                break;
-            case 2:
-                return;
-                break;
-        }
+
     }
 };
 
 int main() {
+    srand(time(0));
     Game::GameLogic();
     return 0;
 }
