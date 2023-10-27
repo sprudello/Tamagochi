@@ -85,18 +85,28 @@ Our goal is to make a Tamagotchi.
 
 ## 3 Decisions
 
-Wir haben uns dazu entschieden einen Tamagotchi in C++ zu prgroammieren, wir wollen diesen mit den oben stehenden Funktionen Implementieren.
-
-✍️ Dokumentieren Sie hier Ihre Entscheidungen und Annahmen, die Sie im Bezug auf Ihre User Stories und die Implementierung getroffen haben
+We have decided to programm a Tamagotchi using C++, we want to implement this by using the unserstorys that are mentioned above.
 
 ## 4 Realize
 
 | AP-№ | Datum | Zuständig | geplante Zeit | tatsächliche Zeit |
 | ---- | ----- | --------- | ------------- | ----------------- |
-| 1.A  |       |           |               |                   |
-| ...  |       |           |               |                   |
+| 1.A  |29.09.2023|Keanu Koelewijn|45min|60min|
+| 1.B  |29.09.2023|Keanu Koelewijn|45min|30min|
+| 2.A  |29.09.2023|Stefan Jesenko|30min|40min|
+| 3.A  |29.09.2023|Julius Burlet|45min|30min|
+| 4.A  |29.09.2023|Keanu Koelewijn|45min|20min|
+| 5.A  |29.09.2023|Stefan Jesenko|45min|40min|
+| 6.A  |29.09.2023|Julius Burlet|45min|20min|
+| 7.A  |29.09.2023|Keanu Koelewijn|45min|60min|
+| 7.B  |29.09.2023|Stefan Jesenko|45min|40min|
+| 8.A  |29.09.2023|Julius Burlet|45min|60min|
+| 8.B  |27.10.2023|Keanu Koelewijn|45min|40min|
+| 9.A  |27.10.2023|Stefan Jesenko|45min|30min|
+| 9.B  |27.10.2023|Julius Burlet|45min|30min|
+|10.A  |27.10.2023|Keanu Koelewijn|30min|20min|
 
-✍️ Tragen Sie jedes Mal, wenn Sie ein Arbeitspaket abschließen, hier ein, wie lang Sie effektiv dafür hatten.
+
 
 ## 5 Check
 
