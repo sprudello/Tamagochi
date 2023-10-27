@@ -2,7 +2,6 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
-#include <limits>
 using namespace std;
 /**
  *  @file main.cpp
@@ -208,14 +207,7 @@ public:
                     "'---------'--------'------------'-----------'-----------'\nWhich Tamagotchi would you like?:\n";
             int choice;
             string tamagotchi;
-
-            // I don't know what this does exactly, but it fixes an issue with cin in loops
-            if (!(cin >> choice)) {
-                cout << "Invalid input. Please enter a number." << std::endl;
-                cin.clear();
-                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                continue;
-            }
+            cin >> choice;
             switch (choice) {
                 case 1:
                     tamagotchi = "Fish";
@@ -234,7 +226,7 @@ public:
                     return tamagotchi;
                 default:
                     cout << "Invalid choice. Try again.\n";
-                    continue;
+                    break;
             }
         }
     }
@@ -267,19 +259,15 @@ public:
         string tamagotchi = pet.chooseTamagotchi();
 
         while (pet.isAlive()) {
-            while(true){
+            bool validChoice = true;
+            do {
                 pet.displayStats();
                 cout << ".---------.---------.---------.---------------.-----------.-------------------------------------.\n"
                         "| 1. Feed | 2. Play | 3. Rest | 4. Give drink | 5. Cuddle | 6. Find something for Pet outdoors. |\n"
                         "'---------'---------'---------'---------------'-----------'-------------------------------------'\n"
                         "Enter your choice: \n";
                 int choice;
-                if (!(cin >> choice)) {
-                    cout << "Invalid input. Please enter a number." << std::endl;
-                    cin.clear();
-                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    continue;
-                }
+                cin >> choice;
                 string reaction;
 
                 switch (choice) {
@@ -422,9 +410,10 @@ public:
                     cout << "-------------------------------------------------------------\n"
                             "Your " << tamagotchi << " reacted with: " << reaction << "";
                 pet.update();
-            }
+            }while (!validChoice);
         }
-        while(true){
+        bool validChoice = true;
+        do {
             cout << "\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
                     "Your " << tamagotchi << " has passed away at age " << pet.getAge() << " and " << pet.getCauseOfDeath() << ". Game over.\n"
                     "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
@@ -434,12 +423,7 @@ public:
                     "'---------------'---------------'\n"
                     "Enter your choice: \n";
             int choice;
-            if (!(cin >> choice)) {
-                cout << "Invalid input. Please enter a number." << std::endl;
-                cin.clear();
-                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                continue;
-            }
+            cin >> choice;
             switch (choice) {
                 case 1:
                     GameLogic();
@@ -452,7 +436,7 @@ public:
                     bool validChoice = false;
                     break;
             }
-        }
+        }while (!validChoice);
 
     }
 };
