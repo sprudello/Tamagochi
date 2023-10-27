@@ -4,9 +4,9 @@ Swaggy guys, Julius V. Burlet, Keanu M. Koelewijn, Stefan Jesenko
 
 | Date       | Version | Summary                                                                                                     |
 |------------|---------|-------------------------------------------------------------------------------------------------------------|
-| 15.09.2023 | 0.0.0   | We were at the coding camp, so we couldn't work on it.                                         |
-| 22.09.2023 | 0.0.1   | We brainstormed what we could potentially do and settled on a C++ project with AI. |
-| 29.09.2023 | 0.0.1.1 | We have changed our minds and now want to make a Tamagotchi in C++.                                    |
+| 15.09.2023 | 0.0.0   | We were at the coding camp, so we couldn't work on it.|
+| 22.09.2023 | 0.0.1   | We brainstormed what we could potentially do and settled on a C++ project with AI.|
+| 29.09.2023 | 0.0.1.1 | We have changed our minds and now want to make a Tamagotchi in C++.|
 
 ## 1 Inform
 
@@ -18,8 +18,16 @@ Our goal is to make a Tamagotchi.
 
 | US-№ | Liability | Type | Description                                 |
 | ---- | --------------- | ---- | ------------------------------------------- |
-| 1    |                 |      | Als ein 🤷‍♂️ möchte ich 🤷‍♂️, damit 🤷‍♂️ |
-| ...  |                 |      |                                             |
+| 1    |Muss|Funktional|Als User möchte ich mich um einen Tamagotchi kümmern, damit ich verantwortung üben kann.|
+| 2    |Muss|Funktional|Als User möchte ich zwischen verschiedenen Tamagotchis auswählen können, damit es abwächslung in dem Spiel gibt.|
+| 3    |Muss|Funktional|Als User möchte ich den Tamagotchi füttern können, damit der Tamagotchi keinen hunger mehr hat.|
+| 4    |Muss|Funktional|Als User möchte ich dem Tamagotchi Wasser geben, damit der Tamagotchi kein durst mehr hat.|
+| 5    |Muss|Funtkional|Als User möchte ich mit dem Tamagotchi Spielen, damit der Tamagotchi nicht mehr traurig ist.|
+| 6    |Muss|Funktional|Als User möchte ich den Tamagotchi ausruhen lassen, damit er sich erhohlen kann.|
+| 7    |Muss|Funktional|Als User möchte ich das ich alle Werte des Tamagotchis balancieren muss, damit der Tamagotchi überlegt, um das Spiel herausfordernd zu machen.|
+| 8    |Kann|Qualität|Als User möchte ich das der Tamagotchi mir auf jede Aktion eine Antwort gibt die spezifisch zur art des Tamagotchis ist, damit das Spiel interaktiver ist.|
+| 9   |Kann|Qualität|Als User möchte ich den Tamagotchi auf suche nach einem Spielzeug schicken kann, damit es mehr optionen gibt wie ich mit dem Tamagotchi interagieren kann.|
+|10  |Muss|Funktional|Als User möchte möchte ich nach einer Runde entsscheiden ob ich nochmal spielen oder ob ich das Spiel schliessen will.| 
 
 ✍️ Jede User Story hat eine ganzzahlige Nummer (1, 2, 3 etc.), eine Verbindlichkeit (Muss oder Kann?), und einen Typ (Funktional, Qualität, Rand). Die User Story selber hat folgende Form: *Als ein 🤷‍♂️ möchte ich 🤷‍♂️, damit 🤷‍♂️*.
 
