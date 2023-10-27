@@ -1,6 +1,6 @@
 # Projekt-Documentation
 
-Swaggy guys, Julius V. Burlet, Keanu M. Koelewijn, Stefan Jesenko
+Swaggy guys🤙🏼( Julius V. Burlet, Keanu M. Koelewijn, Stefan Jesenko)
 
 | Date       | Version | Summary                                                                                                     |
 |------------|---------|-------------------------------------------------------------------------------------------------------------|
@@ -64,27 +64,49 @@ Our goal is to make a Tamagotchi.
 
 | AP-№ | Frist | Zuständig | Beschreibung | geplante Zeit |
 | ---- | ----- | --------- | ------------ | ------------- |
-| 1.A  |       |           |              |               |
-| ...  |       |           |              |               |
+| 1.A  |29.09.2023|Keanu Koelewijn|Tamagotchi can be cared for|45min|
+| 1.B  |29.09.2023|Keanu Koelewijn|Tamagotchi can be cared for|45min|
+| 2.A  |29.09.2023|Stefan Jesenko|Tamagotchi can be chosen from a List of Tamagotchis|30min|
+| 3.A  |29.09.2023|Julius Burlet|Tamagotchi can be feed|45min|
+| 4.A  |29.09.2023|Keanu Koelewijn|Tamagotchi can drink|45min|
+| 5.A  |29.09.2023|Stefan Jesenko|Tamagotchi can play|45min|
+| 6.A  |29.09.2023|Julius Burlet|Tamagotchi can rest|45min|
+| 7.A  |29.09.2023|Keanu Koelewijn|The stats of the Tamagotchi have to be balanced|45min|
+| 7.B  |29.09.2023|Stefan Jesenko|The stats of the Tamagotchi have to be balanced|45min|
+| 8.A  |29.09.2023|Julius Burlet|Every Tamagotchi has unique reactions to the users actions.|45min|
+| 8.B  |27.10.2023|Keanu Koelewijn|Every Tamagotchi has unique reactions to the users actions.|45min|
+| 9.A  |27.10.2023|Stefan Jesenko|Tamagotchi can find toys.|45min|
+| 9.B  |27.10.2023|Julius Burlet|Tamagotchi can find toys.|45min|
+|10.A  |27.10.2023|Keanu Koelewijn|restart of the game.|30min|
 
-Total:
 
-✍️ Die Nummer hat das Format `N.m`, wobei `N` die Nummer der User Story ist, auf die sich das Arbeitspaket bezieht, und `m` von `A` an nach oben buchstabiert. Beispiel: Das dritte Arbeitspaket, das die zweite User Story betrifft, hat also die Nummer `2.C`.
 
-✍️ Ein Arbeitspaket sollte etwa 45' für eine Person in Anspruch nehmen. Die totale Anzahl Arbeitspakete sollte etwa Folgendem entsprechen: `Anzahl R-Sitzungen` ╳ `Anzahl Gruppenmitglieder` ╳ `4`. Wenn Sie also zu dritt an einem Projekt arbeiten, für welches zwei R-Sitzungen geplant sind, sollten Sie auf `2` ╳ `3` ╳`4` = `24` Arbeitspakete kommen. Sollten Sie merken, dass Sie hier nicht genügend Arbeitspakte haben, denken Sie sich weitere "Kann"-User Stories für Kapitel 1.2 aus.
+
 
 ## 3 Decisions
 
-✍️ Dokumentieren Sie hier Ihre Entscheidungen und Annahmen, die Sie im Bezug auf Ihre User Stories und die Implementierung getroffen haben.
+We have decided to programm a Tamagotchi using C++, we want to implement this by using the unserstorys that are mentioned above.
 
 ## 4 Realize
 
 | AP-№ | Datum | Zuständig | geplante Zeit | tatsächliche Zeit |
 | ---- | ----- | --------- | ------------- | ----------------- |
-| 1.A  |       |           |               |                   |
-| ...  |       |           |               |                   |
+| 1.A  |29.09.2023|Keanu Koelewijn|45min|60min|
+| 1.B  |29.09.2023|Keanu Koelewijn|45min|30min|
+| 2.A  |29.09.2023|Stefan Jesenko|30min|40min|
+| 3.A  |29.09.2023|Julius Burlet|45min|30min|
+| 4.A  |29.09.2023|Keanu Koelewijn|45min|20min|
+| 5.A  |29.09.2023|Stefan Jesenko|45min|40min|
+| 6.A  |29.09.2023|Julius Burlet|45min|20min|
+| 7.A  |29.09.2023|Keanu Koelewijn|45min|60min|
+| 7.B  |29.09.2023|Stefan Jesenko|45min|40min|
+| 8.A  |29.09.2023|Julius Burlet|45min|60min|
+| 8.B  |27.10.2023|Keanu Koelewijn|45min|40min|
+| 9.A  |27.10.2023|Stefan Jesenko|45min|30min|
+| 9.B  |27.10.2023|Julius Burlet|45min|30min|
+|10.A  |27.10.2023|Keanu Koelewijn|30min|20min|
 
-✍️ Tragen Sie jedes Mal, wenn Sie ein Arbeitspaket abschließen, hier ein, wie lang Sie effektiv dafür hatten.
+
 
 ## 5 Check
 
