@@ -6,7 +6,8 @@ Swaggy guys🤙🏼( Julius V. Burlet, Keanu M. Koelewijn, Stefan Jesenko)
 |------------|---------|-------------------------------------------------------------------------------------------------------------|
 | 15.09.2023 | 0.0.0   | We were at the coding camp, so we couldn't work on it.|
 | 22.09.2023 | 0.0.1   | We brainstormed what we could potentially do and settled on a C++ project with AI.|
-| 29.09.2023 | 0.0.1.1 | We have changed our minds and now want to make a Tamagotchi in C++.|
+| 29.09.2023 | 0.6.1   | We have changed our minds and now want to make a Tamagotchi in C++. We have started with the developement and now have a basic Tamagotchi.|
+| 27.10.2023 | 1.0.0   | We have added the last changes an bugfixes to our Tamagotchi, it now is implemented with all its feartures.|
 
 ## 1 Inform
 
