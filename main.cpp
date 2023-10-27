@@ -116,8 +116,13 @@ public:
     /// Checks if the Tamagotchi is still alive.
     /// </summary>
     /// <returns>True if the Tamagotchi is alive, otherwise false.</returns>
-    bool isAlive() const {
-        return thirst < 100 && hunger < 100 && love > 0 && happiness > 0 && energy > 0;
+    bool isAlive(){
+        if (thirst > 99 || hunger > 99 || love < 1 || happiness < 1 || energy < 1){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     /// <summary>
@@ -418,10 +423,12 @@ public:
                         bool validChoice = false;
                         break;
                 }
-                if (choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 5)
+                if (choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 5) {
                     cout << "-------------------------------------------------------------\n"
                             "Your " << tamagotchi << " reacted with: " << reaction << "";
+                }
                 pet.update();
+                break;
             }
         }
         while(true){
