@@ -263,7 +263,7 @@ public:
 
 class Game {
 public:
-    static void GameLogic() {
+    int GameLogic() {
         /// <summary>
         /// Main logic of the Tamagotchi game. Creates a Tamagotchi, lets the user interact, and monitors the end of the game.
         /// </summary>
@@ -449,23 +449,32 @@ public:
             }
             switch (choice) {
                 case 1:
-                    GameLogic();
+                    return 1;
                     break;
                 case 2:
-                    return;
+                    return 0;
                     break;
                 default:
                     cout << "Invalid choice. Try again.\n";
                     bool validChoice = false;
                     break;
             }
+            if(PlayAgain()){
+                GameLogic();
+            }
+            else{
+                return 0;
+            }
         }
+    }
+    bool PlayAgain(){
 
     }
 };
 
 int main() {
     srand(time(0));
-    Game::GameLogic();
+    Game game;
+    game.GameLogic();
     return 0;
 }
