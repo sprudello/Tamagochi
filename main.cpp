@@ -263,7 +263,7 @@ public:
 
 class Game {
 public:
-    int GameLogic() {
+    void GameLogic() {
         /// <summary>
         /// Main logic of the Tamagotchi game. Creates a Tamagotchi, lets the user interact, and monitors the end of the game.
         /// </summary>
@@ -431,12 +431,14 @@ public:
                 break;
             }
         }
+        cout << "\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
+                "Your " << tamagotchi << " has passed away at age " << pet.getAge() << " and " << pet.getCauseOfDeath() << ". Game over.\n"
+                "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
+                "\n";
+    }
+    bool PlayAgain(){
         while(true){
-            cout << "\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
-                    "Your " << tamagotchi << " has passed away at age " << pet.getAge() << " and " << pet.getCauseOfDeath() << ". Game over.\n"
-                    "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
-                    "\n"
-                    ".---------------.---------------.\n"
+            cout << ".---------------.---------------.\n"
                     "| 1. Play again | 2. Close Game |\n"
                     "'---------------'---------------'\n"
                     "Enter your choice: \n";
@@ -459,22 +461,15 @@ public:
                     bool validChoice = false;
                     break;
             }
-            if(PlayAgain()){
-                GameLogic();
-            }
-            else{
-                return 0;
-            }
         }
-    }
-    bool PlayAgain(){
-
     }
 };
 
 int main() {
     srand(time(0));
     Game game;
-    game.GameLogic();
+    do {
+        game.GameLogic();
+    } while (game.PlayAgain());
     return 0;
 }
