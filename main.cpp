@@ -161,18 +161,18 @@ public:
                 "|   Stat          |   Display        |   Percentage    |\n"
                 "-----------------------------------------------------------\n"
                 "|  Hunger         |   " << hungerDisplay << "|      " << hunger << "%        |\n"
-                                                                                    "|  Happiness      |   " << happinessDisplay << "|      " << happiness << "%        |\n"
-                                                                                                                                                              "|  Energy         |   " << energyDisplay << "|      " << energy << "%        |\n"
-                                                                                                                                                                                                                                  "|  Thirst         |   " << thirstDisplay << "|      " << thirst << "%        |\n"
-                                                                                                                                                                                                                                                                                                      "|  Love           |   " << loveDisplay << "|      " << love << "%        |\n"
-                                                                                                                                                                                                                                                                                                                                                                      "|  Age            |   " << age << "              |  not available  |\n"
-                                                                                                                                                                                                                                                                                                                                                                                                         "|  Chance to find |   " << chanceDisplay << "|       " << chance << "%        |\n"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                              "-----------------------------------------------------------\n";
+                "|  Happiness      |   " << happinessDisplay << "|      " << happiness << "%        |\n"
+                "|  Energy         |   " << energyDisplay << "|      " << energy << "%        |\n"
+                "|  Thirst         |   " << thirstDisplay << "|      " << thirst << "%        |\n"
+                "|  Love           |   " << loveDisplay << "|      " << love << "%        |\n"
+                "|  Age            |   " << age << "              |  not available  |\n"
+                "|  Chance to find |   " << chanceDisplay << "|       " << chance << "%        |\n"
+                "-----------------------------------------------------------\n";
     }
 
     static string chooseTamagotchi() {
         bool validChoice = true;
-        while (!validChoice) {
+        do {
             cout << "\n.---------.--------.------------.-----------.-----------.\n"
                     "| 1. Fish | 2. Cat | 3. Pickmin | 4. Kermit | 5. Amoeba |\n"
                     "'---------'--------'------------'-----------'-----------'\nWhich Tamagotchi would you like?:\n";
@@ -201,7 +201,7 @@ public:
             }
             return tamagotchi;
             bool validChoice = false;
-        }
+        }while (!validChoice);
     }
 
     [[nodiscard]] int getAge() const {
@@ -222,7 +222,7 @@ public:
 
         while (pet.isAlive()) {
             bool validChoice = true;
-            while (!validChoice) {
+            do {
                 pet.displayStats();
                 cout << ".---------.---------.---------.---------------.-----------.-------------------------------------.\n"
                         "| 1. Feed | 2. Play | 3. Rest | 4. Give drink | 5. Cuddle | 6. Find something for Pet outdoors. |\n"
@@ -372,10 +372,10 @@ public:
                     cout << "-------------------------------------------------------------\n"
                             "Your " << tamagotchi << " reacted with: " << reaction << "";
                 pet.update();
-            }
+            }while (!validChoice);
         }
         bool validChoice = true;
-        while (!validChoice) {
+        do {
             cout << "\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
                     "Your " << tamagotchi << " has passed away at age " << pet.getAge() << " and " << pet.getCauseOfDeath() << ". Game over.\n"
                     "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n"
@@ -398,7 +398,7 @@ public:
                     bool validChoice = false;
                     break;
             }
-        }
+        }while (!validChoice);
 
     }
 };
