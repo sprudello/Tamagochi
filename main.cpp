@@ -3,7 +3,16 @@
 #include <cstdlib>
 #include <ctime>
 using namespace std;
-
+/**
+ *  @file main.cpp
+ *
+ *  @brief Tamagotchi game implementation in C++
+ *
+ *  This C++ program simulates a Tamagotchi game where the user can interact with a virtual pet.
+ *
+ *  @author Keanu Koelewijn, Stefan Jesenko, Julius Burlet
+ *  @date 27.10.2023
+ */
 class Tamagotchi {
 private:
     string hungerDisplay, happinessDisplay, energyDisplay, thirstDisplay, loveDisplay, causeOfDeath, chanceDisplay;
@@ -11,8 +20,14 @@ private:
 public:
     int hunger, happiness, energy, thirst, love, age, turns, chance;
 
+    /// <summary>
+    /// Constructor for the Tamagotchi class. Initializes the values of the Tamagotchi instance.
+    /// </summary>
     Tamagotchi() : hunger(50), happiness(50), energy(50), thirst(50), love(50), age(0), turns(0), chance(0) {}
 
+    /// <summary>
+    /// These methods allow the user to interact with the Tamagotchi by feeding, playing, resting, giving a drink,and cuddling with it. Each action affects the Tamagotchi's hunger, happiness, energy, thirst, and love levels.
+    /// </summary>
     void feed() {
         hunger = max(0, hunger - 20);
         energy = max(0, energy + 5);
@@ -59,6 +74,9 @@ public:
         }
     }
 
+    /// <summary>
+    /// Updates the values of the Tamagotchi instance after each turn.
+    /// </summary>
     void update() {
         turns++;
         love = max(0, love - 5);
@@ -66,6 +84,7 @@ public:
         energy = max(0, energy - 5);
         thirst = max(0, thirst + 5);
         happiness = max(0, happiness - 5);
+        chance = min(100, max(0, chance));
         chance += 10;
         int randomNum = rand() % 2 + 1;
         switch (randomNum) {
@@ -92,10 +111,17 @@ public:
             causeOfDeath = "died of lack of energy";
     }
 
+    /// <summary>
+    /// Checks if the Tamagotchi is still alive.
+    /// </summary>
+    /// <returns>True if the Tamagotchi is alive, otherwise false.</returns>
     bool isAlive() const {
         return thirst < 100 && hunger < 100 && love > 0 && happiness > 0 && energy > 0;
     }
 
+    /// <summary>
+    /// Displays the current statistics of the Tamagotchi, including hunger, happiness, energy, thirst, love, and age.
+    /// </summary>
     void displayStats() {
         // Determine chance display
         if (chance >= 85)
@@ -170,6 +196,10 @@ public:
                 "-----------------------------------------------------------\n";
     }
 
+    /// <summary>
+    /// Static method that prompts the user to choose a Tamagotchi and returns the selected type as a string.
+    /// </summary>
+    /// <returns>The selected Tamagotchi type as a string.</returns>
     static string chooseTamagotchi() {
         bool validChoice = true;
         do {
@@ -204,10 +234,18 @@ public:
         }while (!validChoice);
     }
 
+    /// <summary>
+    /// Returns the age of the Tamagotchi.
+    /// </summary>
+    /// <returns>The age of the Tamagotchi.</returns>
     [[nodiscard]] int getAge() const {
         return age;
     }
 
+    /// <summary>
+    /// Returns the cause of death of the Tamagotchi.
+    /// </summary>
+    /// <returns>The cause of death of the Tamagotchi as a string.</returns>
     [[nodiscard]] string getCauseOfDeath() const {
         return causeOfDeath;
     }
@@ -216,6 +254,9 @@ public:
 class Game {
 public:
     static void GameLogic() {
+        /// <summary>
+        /// Main logic of the Tamagotchi game. Creates a Tamagotchi, lets the user interact, and monitors the end of the game.
+        /// </summary>
         Tamagotchi pet;
         cout << "Welcome to Tamagotchi Console Game!\n";
         string tamagotchi = pet.chooseTamagotchi();
