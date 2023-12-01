@@ -285,13 +285,6 @@ public:
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     continue;
                 }
-                else
-                {
-                    cout << "Invalid input. Please enter a number." << std::endl;
-                    cin.clear();
-                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    continue;
-                }
                 string reaction;
 
                 switch (choice) {
