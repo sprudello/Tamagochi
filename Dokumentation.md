@@ -4,16 +4,16 @@ Swaggy guys🤙🏼( Julius V. Burlet, Keanu M. Koelewijn, Stefan Jesenko)
 
 | Date       | Version | Summary                                                                                                     |
 |------------|---------|-------------------------------------------------------------------------------------------------------------|
-| 15.09.2023 | 0.0.0   | We were at the coding camp, so we couldn't work on it.|
-| 22.09.2023 | 0.0.1   | We brainstormed what we could potentially do and settled on a C++ project with AI.|
-| 29.09.2023 | 0.6.1   | We have changed our minds and now want to make a Tamagotchi in C++. We have started with the developement and now have a basic Tamagotchi.|
-| 27.10.2023 | 1.0.0   | We have added the last changes an bugfixes to our Tamagotchi, it now is implemented with all its feartures.|
+| 15.09.2023 | 0.0.0   | Wir waren im Codingcamp deswegen konnten wir nocht daran arbeiten|
+| 22.09.2023 | 0.0.1   | Wir haben uns überlegt was wir machen könnten und wir haben uns für eine Bilderkennungs KI entschieden.|
+| 29.09.2023 | 0.6.1   | Wir haben uns umentschieden und wir machen jetzt einen Tamagotchi in C++. Wir haben angefangen den Tamagotchi zu programmieren und haben jetzt Simple version programmiert.|
+| 27.10.2023 | 1.0.0   | Wir haben die letzten Funktionen und bugfixes implementiert, der Tamagotchi ist jetzt mit allen Funktionen realisiert.|
 
 ## 1 Inform
 
 ### 1.1 Our Project
 
-Our goal is to make a Tamagotchi. 
+Unser Ziel ist es ein Tamagotchi in C++ zu programmieren 
 
 ### 1.2 User Stories
 
@@ -59,26 +59,27 @@ Our goal is to make a Tamagotchi.
 |10.3  |Tamgaotchi ist gestorben| 2 |Game wird geschlossen|
 ### 1.4 Diagrams
 
-✍️ Hier können Sie PAPs, Use Case- und Gantt-Diagramme oder Ähnliches einfügen.
+![image](https://github.com/sprudello/Tamagotchi/assets/110892250/41850f02-6835-448a-b2fd-8ed1754e400e)
+
 
 ## 2 Planings
 
 | AP-№ | Frist | Zuständig | Beschreibung | geplante Zeit |
 | ---- | ----- | --------- | ------------ | ------------- |
-| 1.A  |29.09.2023|Keanu Koelewijn|Tamagotchi can be cared for|45min|
-| 1.B  |29.09.2023|Keanu Koelewijn|Tamagotchi can be cared for|45min|
-| 2.A  |29.09.2023|Stefan Jesenko|Tamagotchi can be chosen from a List of Tamagotchis|30min|
-| 3.A  |29.09.2023|Julius Burlet|Tamagotchi can be feed|45min|
-| 4.A  |29.09.2023|Keanu Koelewijn|Tamagotchi can drink|45min|
-| 5.A  |29.09.2023|Stefan Jesenko|Tamagotchi can play|45min|
-| 6.A  |29.09.2023|Julius Burlet|Tamagotchi can rest|45min|
-| 7.A  |29.09.2023|Keanu Koelewijn|The stats of the Tamagotchi have to be balanced|45min|
-| 7.B  |29.09.2023|Stefan Jesenko|The stats of the Tamagotchi have to be balanced|45min|
-| 8.A  |29.09.2023|Julius Burlet|Every Tamagotchi has unique reactions to the users actions.|45min|
-| 8.B  |27.10.2023|Keanu Koelewijn|Every Tamagotchi has unique reactions to the users actions.|45min|
-| 9.A  |27.10.2023|Stefan Jesenko|Tamagotchi can find toys.|45min|
-| 9.B  |27.10.2023|Julius Burlet|Tamagotchi can find toys.|45min|
-|10.A  |27.10.2023|Keanu Koelewijn|restart of the game.|30min|
+| 1.A  |29.09.2023|Keanu Koelewijn|Man kann sich um den Tamagotchi kümmern.|45min|
+| 1.B  |29.09.2023|Keanu Koelewijn|Man kann sich um den Tamagotchi kümmern.|45min|
+| 2.A  |29.09.2023|Stefan Jesenko|Tamagotchi kann aus einer Liste ausgewählt werden.|30min|
+| 3.A  |29.09.2023|Julius Burlet|Tamagotchi kann gefüttert werden.|45min|
+| 4.A  |29.09.2023|Keanu Koelewijn|Tamagotchi kann Trinken.|45min|
+| 5.A  |29.09.2023|Stefan Jesenko|Tamagotchi kann Spielen|45min|
+| 6.A  |29.09.2023|Julius Burlet|Tamagotchi kann sich ausruhen|45min|
+| 7.A  |29.09.2023|Keanu Koelewijn|Die Werte des Tamagotchis müssen ausgeglichen sein.|45min|
+| 7.B  |29.09.2023|Stefan Jesenko|Die Werte des Tamagotchis müssen ausgeglichen sein.|45min|
+| 8.A  |29.09.2023|Julius Burlet|Jeder Tamagotchi hat spezielle Reaktionen auf Aktionen.|45min|
+| 8.B  |27.10.2023|Keanu Koelewijn|Jeder Tamagotchi hat spezielle Reaktionen auf Aktionen.|45min|
+| 9.A  |27.10.2023|Stefan Jesenko|Tamagotchi kann Spielzeuge finden.|45min|
+| 9.B  |27.10.2023|Julius Burlet|Tamagotchi kann Spielzeuge finden.|45min|
+|10.A  |27.10.2023|Keanu Koelewijn|Spiel kann neugestartet werden.|30min|
 
 
 
@@ -86,7 +87,7 @@ Our goal is to make a Tamagotchi.
 
 ## 3 Decisions
 
-We have decided to programm a Tamagotchi using C++, we want to implement this by using the unserstorys that are mentioned above.
+Wir haben uns entschieden ein Tamagotchi in C++ zu programmieren, Wir wollen das machen indem wir die Userstorys von oben implementieren.
 
 ## 4 Realize
 
@@ -107,28 +108,36 @@ We have decided to programm a Tamagotchi using C++, we want to implement this by
 | 9.B  |27.10.2023|Julius Burlet|45min|30min|
 |10.A  |27.10.2023|Keanu Koelewijn|30min|20min|
 
-
-
 ## 5 Check
 
 ### 5.1 Test protocol
 
 | TC-№ | Datum | Resultat | Tester |
 | ---- | ----- | -------- | ------ |
-| 1.1  |       |          |        |
-| ...  |       |          |        |
-
-✍️ Vergessen Sie nicht, ein Fazit hinzuzufügen, welches das Test-Ergebnis einordnet.
-
-### 5.2 Exploratory testing
-
-| BR-№ | Ausgangslage | Eingabe | Erwartete Ausgabe | Tatsächliche Ausgabe |
-| ---- | ------------ | ------- | ----------------- | -------------------- |
-| I    |              |         |                   |                      |
-| ...  |              |         |                   |                      |
-
-✍️ Verwenden Sie römische Ziffern für Ihre Bug Reports, also I, II, III, IV etc.
+| 1.1  |27.10.2023|OK|Stefan Jesenko|
+| 2.1  |27.10.2023|OK|Stefan Jesenko|
+| 2.2  |27.10.2023|OK|Stefan Jesenko|
+| 3.1  |27.10.2023|OK|Stefan Jesenko|
+| 3.2  |27.10.2023|OK|Stefan Jesenko|
+| 3.3  |27.10.2023|OK|Stefan Jesenko|
+| 4.1  |27.10.2023|OK|Stefan Jesenko|
+| 4.2  |27.10.2023|OK|Stefan Jesenko|
+| 4.3  |27.10.2023|OK|Stefan Jesenko|
+| 5.1  |27.10.2023|OK|Stefan Jesenko|
+| 5.2  |27.10.2023|OK|Stefan Jesenko|
+| 5.3  |27.10.2023|OK|Stefan Jesenko|
+| 6.1  |27.10.2023|OK|Stefan Jesenko|
+| 6.2  |27.10.2023|OK|Stefan Jesenko|
+| 6.3  |27.10.2023|OK|Stefan Jesenko|
+| 7.1  |27.10.2023|OK|Stefan Jesenko|
+| 7.2  |27.10.2023|OK|Stefan Jesenko|
+| 8.1  |27.10.2023|OK|Stefan Jesenko|
+| 9.1  |27.10.2023|OK|Stefan Jesenko|
+| 9.2  |27.10.2023|OK|Stefan Jesenko|
+|10.1  |27.10.2023|OK|Stefan Jesenko|
+|10.2  |27.10.2023|OK|Stefan Jesenko|
+|10.3  |27.10.2023|OK|Stefan Jesenko|
 
 ## 6 Evaluate
 
-✍️ Fügen Sie hier eine Verknüpfung zu Ihrem Lern-Bericht ein.
+Portfolio
