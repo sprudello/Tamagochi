@@ -141,4 +141,5 @@ Wir haben uns entschieden ein Tamagotchi in C++ zu programmieren, Wir wollen das
 ## 6 Evaluate
 
 Dies finden sie in unseren Portfolios.
+
 Stefan Jesenko: https://portfolio.bbbaden.ch/user/s-jesenko-inf22/portfolio-stefan-jesenko-tamagotchi-c
