@@ -2,22 +2,22 @@
 
 Swaggy guys🤙🏼( Julius V. Burlet, Keanu M. Koelewijn, Stefan Jesenko)
 
-| Date       | Version | Summary                                                                                                     |
+| Datum       | Version | Zusammenfassung                                                                 |
 |------------|---------|-------------------------------------------------------------------------------------------------------------|
 | 15.09.2023 | 0.0.0   | Wir waren im Codingcamp, deshalb konnten wir nicht daran arbeiten.|
 | 22.09.2023 | 0.0.1   | Wir haben darüber nachgedacht, was wir machen könnten, und uns schliesslich für eine Schere, Stein, Papier KI entschieden.|
 | 29.09.2023 | 0.6.1   | Wir haben uns umentschieden und programmieren nun einen Tamagotchi in C++. Wir haben bereits damit begonnen und eine einfache Version des Tamagotchis erstellt.|
 | 27.10.2023 | 1.0.0   | Wir haben die letzten Funktionen und Bugfixes implementiert. Der Tamagotchi ist nun vollständig mit allen Funktionen realisiert.|
 
-## 1 Inform
+## 1 Informieren
 
-### 1.1 Our Project
+### 1.1 Ihr Projekt
 
 Unser Ziel ist es, ein Tamagotchi ähnliches Spiel in C++ zu programmieren.
 
 ### 1.2 User Stories
 
-| US-№ | Liability | Type | Description                                 |
+| US-№ | Verbindlichkeit | Typ        | Beschreibung                                 |
 | ---- | --------------- | ---- | ------------------------------------------- |
 | 1    |Muss|Funktional|Als Nutzer möchte ich mich um einen Tamagotchi kümmern, um Verantwortung zu übernehmen.|
 | 2    |Muss|Funktional|Als Nutzer möchte ich zwischen verschiedenen Tamagotchis auswählen können, um Abwechslung im Spiel zu haben.|
@@ -30,9 +30,9 @@ Unser Ziel ist es, ein Tamagotchi ähnliches Spiel in C++ zu programmieren.
 | 9   |Kann|Qualität|Als Nutzer möchte ich den Tamagotchi auf die Suche nach einem Spielzeug schicken können, um mehr Optionen für die Interaktion mit dem Tamagotchi zu haben.|
 |10  |Muss|Funktional|Als Nutzer möchte ich nach einer Runde entscheiden können, ob ich nochmal spielen oder das Spiel schließen möchte.| 
 
-### 1.3 Test cases
+### 1.3 Testfälle
 
-| TC-№ | Initial situation | Input | Expected output |
+| TC-№ | Ausgangslage                                                       | Eingabe                                         | Erwartete Ausgabe                                                                                    |
 | ---- | ------------ | ------- | ----------------- |
 | 1.1  |Das Spiel wurde gestartet.| - |Optionen um sich um den Tamagotchi zu kümmern erscheinen.|
 | 2.1  |Das Spiel wurde gestartet.| - |"1. Fish / 2. Cat / 3. Pickmin / 4. Kermit / 5. Amoeba /Which Tamagotchi would you like?:"|
@@ -57,12 +57,12 @@ Unser Ziel ist es, ein Tamagotchi ähnliches Spiel in C++ zu programmieren.
 |10.1  |Tamagotchi ist gestorben| - |"/ 1. Play again / 2. Close Game /"|
 |10.2  |Tamagotchi ist gestorben| 1 |Neues Game wird gestartet.|
 |10.3  |Tamgaotchi ist gestorben| 2 |Game wird geschlossen|
-### 1.4 Diagrams
+### 1.4 Diagramme
 
 ![image](https://github.com/sprudello/Tamagotchi/assets/110892250/41850f02-6835-448a-b2fd-8ed1754e400e)
 
 
-## 2 Planings
+## 2 Planen
 
 | AP-№ | Frist | Zuständig | Beschreibung | geplante Zeit |
 | ---- | ----- | --------- | ------------ | ------------- |
@@ -85,11 +85,11 @@ Unser Ziel ist es, ein Tamagotchi ähnliches Spiel in C++ zu programmieren.
 
 
 
-## 3 Decisions
+## 3 Entscheiden
 
 Wir haben uns entschieden ein Tamagotchi in C++ zu programmieren, Wir wollen das machen indem wir die Userstorys von oben implementieren.
 
-## 4 Realize
+## 4 Realisieren
 
 | AP-№ | Datum | Zuständig | geplante Zeit | tatsächliche Zeit |
 | ---- | ----- | --------- | ------------- | ----------------- |
@@ -108,9 +108,7 @@ Wir haben uns entschieden ein Tamagotchi in C++ zu programmieren, Wir wollen das
 | 9.B  |27.10.2023|Julius Burlet|45min|30min|
 |10.A  |27.10.2023|Keanu Koelewijn|30min|20min|
 
-## 5 Check
-
-### 5.1 Test protocol
+## 5 Kontrollieren
 
 | TC-№ | Datum | Resultat | Tester |
 | ---- | ----- | -------- | ------ |
@@ -138,7 +136,9 @@ Wir haben uns entschieden ein Tamagotchi in C++ zu programmieren, Wir wollen das
 |10.2  |27.10.2023|OK|Stefan Jesenko|
 |10.3  |27.10.2023|OK|Stefan Jesenko|
 
-## 6 Evaluate
+Alle Tests funktionieren. Die Tests wurden manuell in CLion durchgeführt.
+
+## 6 Auswerten
 
 Dies finden sie in unseren Portfolios.
 
