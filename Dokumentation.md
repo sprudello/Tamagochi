@@ -140,4 +140,4 @@ Wir haben uns entschieden ein Tamagotchi in C++ zu programmieren, Wir wollen das
 
 ## 6 Evaluate
 
-Portfolio
+Dies finden sie in unseren Portfolios.
