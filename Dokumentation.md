@@ -145,3 +145,5 @@ Dies finden sie in unseren Portfolios.
 Stefan Jesenko: https://portfolio.bbbaden.ch/user/s-jesenko-inf22/portfolio-stefan-jesenko-tamagotchi-c
 
 Keanu Koelewijn: https://portfolio.bbbaden.ch/view/view.php?t=69041c7b6f48650bc06c
+
+Julius Burlet: https://portfolio.bbbaden.ch/view/view.php?t=2cf45503b994267b1d33
